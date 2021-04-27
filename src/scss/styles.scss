@@ -1,0 +1,46 @@
+@import 'base/base.scss';
+@import 'config/variables.scss';
+@import 'mixins/mixins';
+
+.head {
+  @include box (125px, 100px, 50%);
+  @include flex (true);
+  background-color: $body-dark;
+  border: 15px solid $body-light;
+  position: relative;
+
+  & .eyes {
+    display: flex;
+
+    & .eye {
+      @include box (10px, 10px, 50%);
+      @include flex;
+      background-color: #000;
+      transform: translate(0, -50%);
+      border: 5px solid $eyes;
+      margin: 0 18px;
+    }
+  }
+
+  & .nose {
+    @include box (8px, 8px);
+    display: flex;
+    position: absolute;
+    background-color: #000;
+    border-radius: 50% 50% 50% 50% / 18% 18% 88% 88%;
+    
+    &::before, &::after {
+      @include ps;
+      @include box (8px, 10px, 50%);
+    }
+    
+    &::before {
+      border: 1px solid black;
+      transform: translateX(-50%);
+      border-left: none;
+      border-top: none;
+      border-radius: none;
+    }
+  }
+
+}

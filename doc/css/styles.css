@@ -1,0 +1,56 @@
+:root {
+  --body-light: #e2c49a;
+  --body-dark: #5b493b;
+  --eyes: #75d8c1;
+  --pink: #fabcce; }
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; }
+
+.head {
+  width: 125px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--body-dark);
+  border: 15px solid var(--body-light);
+  position: relative; }
+  .head .eyes {
+    display: flex; }
+    .head .eyes .eye {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      transform: translate(0, -50%);
+      border: 5px solid var(--eyes);
+      margin: 0 18px; }
+  .head .nose {
+    width: 8px;
+    height: 8px;
+    display: flex;
+    position: absolute;
+    background-color: #000;
+    border-radius: 50% 50% 50% 50% / 18% 18% 88% 88%; }
+    .head .nose::before, .head .nose::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 10px;
+      border-radius: 50%; }
+    .head .nose::before {
+      border: 1px solid black;
+      transform: translateX(-50%);
+      border-left: none;
+      border-top: none;
+      border-radius: none; }

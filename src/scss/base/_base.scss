@@ -1,0 +1,14 @@
+:root {
+  --body-light: #e2c49a;
+  --body-dark: #5b493b;
+  --eyes: #75d8c1;
+  --pink: #fabcce;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
