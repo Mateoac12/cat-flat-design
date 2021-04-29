@@ -12,45 +12,69 @@ body {
   min-height: 100vh; }
 
 .head {
-  width: 125px;
-  height: 100px;
+  width: 250px;
+  height: 200px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color: var(--body-dark);
-  border: 15px solid var(--body-light);
+  border: 25px solid var(--body-light);
+  box-sizing: border-box;
   position: relative; }
+  .head .ear {
+    width: 45px;
+    height: 45px;
+    background-color: var(--body-dark);
+    left: 0;
+    position: absolute; }
   .head .eyes {
     display: flex; }
     .head .eyes .eye {
-      width: 10px;
-      height: 10px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #000;
-      transform: translate(0, -50%);
-      border: 5px solid var(--eyes);
-      margin: 0 18px; }
+      border: 8px solid var(--eyes);
+      box-sizing: border-box;
+      margin: 0 20px;
+      transform: translate(0, -50%); }
+      .head .eyes .eye::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: white; }
+      .head .eyes .eye:not(:first-child)::before {
+        left: 15%; }
   .head .nose {
-    width: 8px;
-    height: 8px;
-    display: flex;
-    position: absolute;
+    width: 12px;
+    height: 12px;
     background-color: #000;
-    border-radius: 50% 50% 50% 50% / 18% 18% 88% 88%; }
+    border-radius: 50% 50% 50% 50% / 18% 18% 88% 88%;
+    display: flex;
+    position: absolute; }
     .head .nose::before, .head .nose::after {
       content: '';
       position: absolute;
-      width: 8px;
-      height: 10px;
-      border-radius: 50%; }
-    .head .nose::before {
+      left: -30%;
+      width: 18px;
+      height: 25px;
+      border-radius: 50%;
       border: 1px solid black;
-      transform: translateX(-50%);
+      border-top: none; }
+    .head .nose::before {
       border-left: none;
-      border-top: none;
-      border-radius: none; }
+      border-radius: 0% 0% 50% 50% / 0% 0% 50% 30%;
+      transform: translateX(-49%); }
+    .head .nose::after {
+      border-radius: 0% 0% 50% 50% / 0% 0% 30% 50%;
+      border-right: none;
+      transform: translate(51%); }

@@ -3,43 +3,70 @@
 @import 'mixins/mixins';
 
 .head {
-  @include box (125px, 100px, 50%);
+  @include box (250px, 200px, 50%);
   @include flex (true);
   background-color: $body-dark;
-  border: 15px solid $body-light;
+  border: 25px solid $body-light;
+  box-sizing: border-box;
   position: relative;
+
+  & .ear {
+    @include box (45px, 45px);
+    background-color: $body-dark;
+    left: 0;
+    position: absolute;
+  }
 
   & .eyes {
     display: flex;
 
     & .eye {
-      @include box (10px, 10px, 50%);
+      @include box (30px, 30px, 50%);
       @include flex;
       background-color: #000;
+      border: 8px solid $eyes;
+      box-sizing: border-box;
+      margin: 0 20px;
       transform: translate(0, -50%);
-      border: 5px solid $eyes;
-      margin: 0 18px;
+
+      &::before {
+        @include ps (50%, 20%);
+        @include box (5px, 5px, 50%);
+        background-color: white
+      }
+
+      &:not(:first-child) {
+        &::before {
+          left: 15%;
+        }
+      }
     }
   }
 
   & .nose {
-    @include box (8px, 8px);
-    display: flex;
-    position: absolute;
+    @include box (12px, 12px);
     background-color: #000;
     border-radius: 50% 50% 50% 50% / 18% 18% 88% 88%;
+    display: flex;
+    position: absolute;
     
     &::before, &::after {
-      @include ps;
-      @include box (8px, 10px, 50%);
+      @include ps (-30%, 0%);
+      @include box (18px, 25px, 50%);
+      border: 1px solid black;
+      border-top: none;
     }
     
     &::before {
-      border: 1px solid black;
-      transform: translateX(-50%);
       border-left: none;
-      border-top: none;
-      border-radius: none;
+      border-radius: 0% 0% 50% 50% / 0% 0% 50% 30%;
+      transform: translateX(-49%);
+    }
+    
+    &::after {
+      border-radius: 0% 0% 50% 50% / 0% 0% 30% 50%;
+      border-right: none;
+      transform: translate(51%);
     }
   }
 

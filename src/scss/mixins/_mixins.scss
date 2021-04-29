@@ -24,7 +24,7 @@
   @if $left != 0 {
     left: $left;
   }
-  @else if $top != 0 {
+  @if $top != 0 {
     top: $top;
   }
 }
