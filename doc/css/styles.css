@@ -24,11 +24,19 @@ body {
   box-sizing: border-box;
   position: relative; }
   .head .ear {
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 40px;
     background-color: var(--body-dark);
+    position: absolute;
     left: 0;
-    position: absolute; }
+    top: 0;
+    border-radius: 0% 100% 70% 30%/ 0% 30% 70% 70%;
+    border: 10px solid var(--body-light);
+    transform: translateY(-60%) rotate(10deg);
+    z-index: -1; }
+    .head .ear:not(:first-child) {
+      left: 100%;
+      transform: translate(-95%, -60%) rotate(-10deg) rotateY(0.5turn); }
   .head .eyes {
     display: flex; }
     .head .eyes .eye {
@@ -78,3 +86,31 @@ body {
       border-radius: 0% 0% 50% 50% / 0% 0% 30% 50%;
       border-right: none;
       transform: translate(51%); }
+  .head .mustache {
+    width: 20px;
+    height: 1px;
+    background-color: var(--body-light);
+    position: absolute;
+    left: 15%;
+    top: 60%; }
+    .head .mustache::after, .head .mustache::before {
+      content: '';
+      position: absolute;
+      background-color: var(--body-light); }
+    .head .mustache::before {
+      width: 25px;
+      height: 1px;
+      left: 2px;
+      top: -5px;
+      transform: rotate(10deg); }
+    .head .mustache::after {
+      width: 15px;
+      height: 1px;
+      left: 5px;
+      top: 5px;
+      transform: rotate(-15deg); }
+    .head .mustache:last-child {
+      background-color: var(--body-light);
+      left: initial;
+      right: 18%;
+      transform: rotateY(0.5turn); }

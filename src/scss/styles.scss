@@ -11,12 +11,22 @@
   position: relative;
 
   & .ear {
-    @include box (45px, 45px);
+    @include box (30px, 40px);
     background-color: $body-dark;
-    left: 0;
     position: absolute;
-  }
+    left: 0;
+    top: 0;
+    border-radius: 0% 100% 70% 30%/ 0% 30% 70% 70%;
+    border: 10px solid $body-light;
+    transform: translateY(-60%) rotate(10deg);
+    z-index: -1;
 
+    &:not(:first-child) {
+      left: 100%;
+      transform: translate(-95%, -60%) rotate(-10deg) rotateY(0.5turn);
+    }
+  }
+  
   & .eyes {
     display: flex;
 
@@ -70,4 +80,37 @@
     }
   }
 
+  & .mustache {
+    @include box (20px, 1px);
+    background-color: $body-light;
+    position: absolute;
+    left: 15%;
+    top: 60%;
+
+    &::after, &::before {
+      @include ps;
+      background-color: $body-light;
+    }
+    
+    &::before {
+      @include box (25px, 1px);
+      left: 2px;
+      top: -5px;
+      transform: rotate(10deg);
+    }
+    
+    &::after {
+      @include box (15px, 1px);
+      left: 5px;
+      top: 5px;
+      transform: rotate(-15deg);
+    }
+
+    &:last-child {
+      background-color: $body-light;
+      left: initial;
+      right: 18%;
+      transform: rotateY(.5turn);
+    }
+  }
 }
