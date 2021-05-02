@@ -8,14 +8,14 @@ const server = browserSync.create()
 gulp.task('html', () => {
     return gulp
         .src('./src/pages/*.html')
-        .pipe(gulp.dest('./doc/pages'))
+        .pipe(gulp.dest('./docs'))
 })
 
 gulp.task('sass', () => {
     return gulp
         .src('./src/scss/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./doc/css'))
+        .pipe(gulp.dest('./docs/css'))
 })
 
 gulp.task('default', () => {
