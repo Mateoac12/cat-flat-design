@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 :root {
   --body-light: #e2c49a;
   --body-dark: #5b493b;
@@ -5,11 +6,32 @@
   --pink: #fabcce; }
 
 body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh; }
+  display: flex;
+  font-family: 'Press Start 2P', cursive;
+  justify-content: center;
+  margin: 0;
+  min-height: 100vh;
+  width: 100vw;
+  background-image: radial-gradient(var(--pink) 20%, transparent 20%);
+  background-position: 0 0;
+  background-size: 200px 200px; }
+
+.body-box {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative; }
+
+.title {
+  -webkit-text-stroke: 2px var(--body-dark);
+  color: #fff;
+  font-size: 60px;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%; }
 
 .head {
   width: 250px;
@@ -19,6 +41,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  animation: head 2s infinite linear alternate;
   background-color: var(--body-dark);
   border: 25px solid var(--body-light);
   box-sizing: border-box;
@@ -27,11 +50,11 @@ body {
     width: 30px;
     height: 40px;
     background-color: var(--body-dark);
-    position: absolute;
-    left: 0;
-    top: 0;
     border-radius: 0% 100% 70% 30%/ 0% 30% 70% 70%;
     border: 10px solid var(--body-light);
+    left: 0;
+    position: absolute;
+    top: 0;
     transform: translateY(-60%) rotate(10deg);
     z-index: -1; }
     .head .ear:not(:first-child) {
@@ -90,8 +113,8 @@ body {
     width: 20px;
     height: 1px;
     background-color: var(--body-light);
-    position: absolute;
     left: 15%;
+    position: absolute;
     top: 60%; }
     .head .mustache::after, .head .mustache::before {
       content: '';
@@ -114,3 +137,85 @@ body {
       left: initial;
       right: 18%;
       transform: rotateY(0.5turn); }
+
+.body {
+  width: 200px;
+  height: 200px;
+  align-items: center;
+  background-color: var(--body-light);
+  border-radius: 30% 30% 20% 30% / 50% 50% 20% 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  transform: translateY(-10%); }
+  .body .chest {
+    width: 150px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--body-light);
+    transform: translateY(15%); }
+  .body .legs {
+    display: flex;
+    justify-content: space-around;
+    width: 150px; }
+    .body .legs .leg {
+      width: 20px;
+      height: 100px;
+      background-color: var(--body-dark); }
+      .body .legs .leg::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: var(--body-dark);
+        box-shadow: 10px -10px 0 var(--body-dark), -10px -10px 0 var(--body-dark); }
+
+.tail {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  left: 80%;
+  bottom: 40%;
+  transform: rotate(-10deg); }
+  .tail .end-tail {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--body-dark);
+    position: absolute;
+    transform: translate(90px, 51px);
+    z-index: 10; }
+  .tail::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    border: 40px solid var(--body-dark);
+    border-radius: 50% / 20%;
+    border-left: none;
+    border-top: none;
+    border-left: none;
+    border-right: none; }
+  .tail::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    border: 40px solid #fff;
+    border-radius: 50% / 20%;
+    border-left: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    transform: translateY(-20px); }
+
+@keyframes head {
+  0% {
+    transform: rotate(5deg); }
+  50% {
+    transform: rotate(0); }
+  100% {
+    transform: rotate(-5deg); } }

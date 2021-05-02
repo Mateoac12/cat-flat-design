@@ -2,9 +2,28 @@
 @import 'config/variables.scss';
 @import 'mixins/mixins';
 
+.body-box {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.title {
+  -webkit-text-stroke: 2px $body-dark;
+  color: #fff;
+  font-size: 60px;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+
 .head {
   @include box (250px, 200px, 50%);
   @include flex (true);
+  animation: head 2s infinite linear alternate;
   background-color: $body-dark;
   border: 25px solid $body-light;
   box-sizing: border-box;
@@ -13,11 +32,11 @@
   & .ear {
     @include box (30px, 40px);
     background-color: $body-dark;
-    position: absolute;
-    left: 0;
-    top: 0;
     border-radius: 0% 100% 70% 30%/ 0% 30% 70% 70%;
     border: 10px solid $body-light;
+    left: 0;
+    position: absolute;
+    top: 0;
     transform: translateY(-60%) rotate(10deg);
     z-index: -1;
 
@@ -83,8 +102,8 @@
   & .mustache {
     @include box (20px, 1px);
     background-color: $body-light;
-    position: absolute;
     left: 15%;
+    position: absolute;
     top: 60%;
 
     &::after, &::before {
@@ -112,5 +131,96 @@
       right: 18%;
       transform: rotateY(.5turn);
     }
+  }
+}
+
+.body {
+  @include box (200px, 200px);
+  align-items: center;
+  background-color: $body-light;
+  border-radius: 30% 30% 20% 30% / 50% 50% 20% 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  transform: translateY(-10%);
+
+  & .chest {
+    @include box (150px, 100px, 50%);
+    background-color: $body-light;
+    transform: translateY(15%);
+  }
+
+  & .legs {
+    display: flex;
+    justify-content: space-around;
+    width: 150px;
+
+    & .leg {
+      @include box (20px, 100px);
+      background-color: $body-dark;
+
+      &::before {
+        @include ps (0%, 100%);
+        @include box (20px, 20px, 50%);
+        background-color: $body-dark;
+        box-shadow:
+          10px -10px 0 $body-dark,
+          -10px -10px 0 $body-dark;
+      }
+    }
+  }
+
+}
+
+.tail {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  left: 80%;
+  bottom: 40%;
+  transform: rotate(-10deg);
+
+  & .end-tail {
+    @include box (25px, 25px, 50%);
+    background-color: $body-dark;
+    position: absolute;
+    transform: translate(90px, 51px);
+    z-index: 10;
+  }
+
+  &::before {
+    @include ps;
+    @include box (100px, 50px);
+    border: 40px solid $body-dark;
+    border-radius: 50% / 20%;
+    border-left: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+  
+  &::after {
+    @include ps;
+    @include box (100px, 50px);
+    border: 40px solid #fff;
+    border-radius: 50% / 20%;
+    border-left: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes head {
+  0% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-5deg);
   }
 }
