@@ -23,15 +23,26 @@ body {
   flex-direction: column;
   position: relative; }
 
-.title {
-  -webkit-text-stroke: 2px var(--body-dark);
-  color: #fff;
-  font-size: 60px;
+.titles {
   left: 0;
   position: fixed;
   text-align: center;
   top: 0;
   width: 100%; }
+  .titles .title {
+    -webkit-text-stroke: 2px var(--body-dark);
+    color: #fff;
+    font-size: 60px;
+    margin-bottom: .5rem; }
+    @media (max-width: 600px) {
+      .titles .title {
+        font-size: 32px; } }
+  .titles .link {
+    font-size: 14px;
+    color: var(--body-dark); }
+    @media (max-width: 600px) {
+      .titles .link {
+        font-size: 10px; } }
 
 .head {
   width: 250px;
